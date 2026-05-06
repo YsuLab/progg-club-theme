@@ -13,6 +13,8 @@
         header -Content-Security-Policy
         reverse_proxy dokploy:3000 {
             header_up Accept-Encoding identity
+            header_up Origin       http://dokploy:3000
+            header_up Referer      http://dokploy:3000/
         }
         replace "</head>" `<link rel="stylesheet" href="/theme.css"></head>`
     }
