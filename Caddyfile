@@ -1,5 +1,5 @@
 {
-    order replace_response after encode
+    order replace after encode
 }
 
 :80 {
@@ -14,6 +14,6 @@
         reverse_proxy dokploy:3000 {
             header_up Accept-Encoding identity
         }
-        replace_response "</head>" `<link rel="stylesheet" href="/theme.css"></head>`
+        replace "</head>" `<link rel="stylesheet" href="/theme.css"></head>`
     }
 }
