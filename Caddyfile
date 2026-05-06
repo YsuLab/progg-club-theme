@@ -1,3 +1,7 @@
+{
+    order replace_response after encode
+}
+
 :80 {
     @theme path /theme.css
     handle @theme {
