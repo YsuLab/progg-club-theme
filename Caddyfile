@@ -1,0 +1,15 @@
+:80 {
+    @theme path /theme.css
+    handle @theme {
+        root * /srv
+        file_server
+    }
+
+    handle {
+        header -Content-Security-Policy
+        reverse_proxy dokploy:3000 {
+            header_up Accept-Encoding identity
+        }
+        replace_response "</head>" `<link rel="stylesheet" href="/theme.css"></head>`
+    }
+}
